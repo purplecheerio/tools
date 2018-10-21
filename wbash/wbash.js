@@ -50,18 +50,19 @@ exports.RouteGetSomethingForm = function(req, res) {
 }
 exports.RoutePostSomething = function(req, res) {
   var spawn = require('child_process').spawn
-  // var child = spawn('ls -las', {
+  var dataCum = []
   var child = spawn(req.body.cmd, {
     shell: true
   })
+
   child.stderr.on('data', function(data) {
-    AppendResult(req.body.cmd, data)
-    RenderForm(req, res)
-    // res.status(500).send(data.toString())
+    dataCum.push(data)
   })
   child.stdout.on('data', function(data) {
-    AppendResult(req.body.cmd, data)
+    dataCum.push(data)
+  })
+  child.on('exit', function(exitCode) {
+    AppendResult(req.body.cmd, Buffer.concat(dataCum))
     RenderForm(req, res)
   })
-  child.on('exit', function(exitCode) {})
 }
