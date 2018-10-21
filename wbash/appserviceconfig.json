@@ -1,0 +1,13 @@
+{
+  "services": 
+  {
+    "wbash": {
+      "protocol": "http",
+      "port": 8888,
+      "hostname": "localhost",
+      "description": "REST END POINT For Sample Service.",
+      "configfilepath": "./appconfig.json",
+      "security": "nokey"
+    }
+  }
+}

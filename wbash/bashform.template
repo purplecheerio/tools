@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>purplecheer.io sdk documentation</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="images/wbash.png">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+
+    <!-- below copied from www2 -->
+    <link href="css/font-awesome.css" rel="stylesheet"> 
+    <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="icon" href="images/wbash.png" type="image/x-icon" />
+    <link rel="icon" type="image/png" href="images/wbash.png" />
+    <link rel="shortcut icon" href="images/wbash.png" type="image/x-icon" />
+    <!-- above copied from www2 -->    
+    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head> 
+
+<body>
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <div class="banner1" id="home">
+            <!-- header -->
+            <header>
+                <div class="container-fluid">
+                        <div class="pclogo"><h1>WBash</h1></div>
+                        <!-- navigation -->
+                        <nav class="navbar navbar-default ayanEffects ayanHoverEffect_7">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>				
+                            </div>
+            
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <!-- <li><a href="index.html">Home</a></li> -->
+                                </ul>
+                            </div><!-- /.navbar-collapse -->	  
+                        </nav>
+                        <div class="clearfix"></div>
+                </div>
+            </header>
+        </div>
+        <div class="doc-body">
+            <div class="doc-wrapper">
+                <div class="container">
+                    
+                    <div id="doc-header" class="doc-header text-center">
+                        <h1 class="doc-title"><i class="icon fa fa-tasks"></i> WebShell</h1>
+                    </div>
+                    
+                    <div class="doc-body">
+                        <div class="doc-content">
+                            <div class="content-inner">
+                                <ul class='list-group'>
+                                    <li class='list-group-item list-group-item-info '>
+                                        <form action="bash" method="post">
+                                            <input type="text" id="appkey" name="cmd" title="cmd - bash script" class="form-control"  placeholder="cmd - required" aria-describedby="basic-addon2" REPLCmdValue>
+                                        </form>
+                                    </li>
+                                        REPLResults
+                                </ul>
+                            </div>
+                        </div> <!--content-inner-->
+                    </div> <!-- doc-content -->			
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li>Commands</li>
+                                REPLCommands
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//container-->
+            </div><!--//doc-wrapper-->
+        </div><!--//doc-body-->
+           
+         
+    </div><!--//page-wrapper-->
+    <div class="page-foote-barr">
+		<div class="bottom-nav-cheer-bar">
+            <div class="copyright">
+            </div>
+		</div>
+   </div>
+ 
+
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 
+
