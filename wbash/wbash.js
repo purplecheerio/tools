@@ -24,7 +24,12 @@ function RenderForm(req, res) {
     strRes += "<li class='list-group-item list-group-item-info'>"
     strRes += "<dl  class='dl-horizontal vcenter'>"
     for (var i = history.length - 1; i >= 0; i--) {
-      strCmds += "<li class='list-group-item'><a href='#" + i + "'>" + history[i].cmd + '</a></li>'
+      strCmds +=
+        "<li class='list-group-item'><a href='#" +
+        i +
+        "'>" +
+        history[i].cmd +
+        '</a></li>'
       strRes += "<dt id='" + i + "'>" + history[i].cmd + '</dt>'
       strRes += '<dd><pre>' + history[i].result + '</pre><dd>'
     }
