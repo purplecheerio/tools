@@ -38,6 +38,45 @@
           }
         }
       ]
+    },
+
+    {
+      "route": "/",
+      "type": "get",
+      "configured": true,
+      "routeclass": "./wbash.js",
+      "routefunction": "RouteGetSomethingForm",
+      "description": "Shell User interface",
+      "examples": [
+        {
+          "param": "/"
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "type": "post",
+      "configured": true,
+      "routeclass": "./wbash.js",
+      "routefunction": "RoutePostSomething",
+      "description": "Bash web console",
+      "bodyschema":{
+        "type":"object",
+        "required":["cmd"],
+        "properties":{
+          "cmd": {
+            "description": "bash command",
+            "type": "string"
+          }
+        }
+      },
+      "examples": [
+        {
+          "payload": {
+            "cmd":"echo hello"
+          }
+        }
+      ]
     }
 
   ]
