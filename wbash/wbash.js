@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 var history = []
 exports.RouteGetSomething = function(req, res) {
   var spawn = require('child_process').spawn
@@ -15,7 +16,8 @@ exports.RouteGetSomething = function(req, res) {
   child.on('exit', function(exitCode) {})
 }
 function RenderForm(req, res) {
-  var str = fs.readFileSync('./bashform.template', 'UTF8')
+  var pathtoread = path.join(__dirname, '/bashform.template')
+  var str = fs.readFileSync(pathtoread, 'UTF8')
   var strRes = ''
   var strCmds = ''
   var strCmdValue = ''
