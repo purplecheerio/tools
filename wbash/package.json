@@ -1,6 +1,6 @@
 {
   "name": "wbash",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "web bash ",
   "main": "./index.js",
   "bin": "./bin/bin.js",
@@ -13,7 +13,7 @@
     "fix": "npm run lint -- --fix",
     "fixlint": "eslint . --fix --ignore-path .gitignore ",
     "toc": "markdown-toc -i README.md",
-    "prepublishOnly": "npm test && npm run build && pkg-ok"
+    "prepublishOnly": "npm test && pkg-ok"
   },
   "repository": {
     "type": "git",
