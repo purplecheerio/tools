@@ -51,7 +51,6 @@
             </header>
         </div>
         <div class="doc-body">
-            <div class="doc-wrapper1">
                 <div class="container-fluid">
                     
                     <div id="doc-header" class="doc-header text-center">
@@ -69,19 +68,18 @@
                                     </li>
                                         REPLResults
                                 </ul>
-                            </div>
-                        </div> <!--content-inner-->
-                    </div> <!-- doc-content -->			
+                            </div> <!--content-inner-->
+                        </div> <!-- doc-content -->
                     <div class="doc-sidebar hidden-xs">
                         <nav id="doc-nav">
-                            <ul id="doc-menu list-group" class="nav doc-menu" data-spy="affix">
+                            <ul id="doc-menu list-group" style="top:0px" class="nav doc-menu" data-spy="affix">
                                 <li class="list-group-item active">Commands</li>
                                 REPLCommands
                             </ul><!--//doc-menu-->
                         </nav>
                     </div><!--//doc-sidebar-->
-                </div><!--//container-->
-            </div><!--//doc-wrapper-->
+                    </div> <!-- doc-body -->		
+                </div><!--//container-fluid-->
         </div><!--//doc-body-->
            
          
