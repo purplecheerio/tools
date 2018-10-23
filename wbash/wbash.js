@@ -24,7 +24,7 @@ function RenderForm(req, res) {
   if (history.length) {
     strCmdValue = "value='" + history[history.length - 1].cmd + "'"
     strRes += "<li class='list-group-item list-group-item-info'>"
-    strRes += "<dl  class='dl-horizontal vcenter'>"
+    // strRes += "<dl  class='dl-horizontal vcenter'>"
     for (var i = history.length - 1; i >= 0; i--) {
       strCmds +=
         "<li class='list-group-item'><a href='#" +
@@ -32,8 +32,14 @@ function RenderForm(req, res) {
         "'>" +
         history[i].cmd +
         '</a></li>'
-      strRes += "<dt id='" + i + "'>" + history[i].cmd + '</dt>'
-      strRes += '<dd><pre>' + history[i].result + '</pre><dd>'
+      strRes +=
+        "<li class='list-group-item list-group-item-success' id='" +
+        i +
+        "'>" +
+        history[i].cmd +
+        '</li>'
+      strRes +=
+        "<li class='list-group-item'><pre>" + history[i].result + '</pre></li>'
     }
     strRes += '</dl>'
     strRes += '</li>'
