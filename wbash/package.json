@@ -1,6 +1,6 @@
 {
   "name": "wbash",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "web bash ",
   "main": "./index.js",
   "bin": "./bin/bin.js",
