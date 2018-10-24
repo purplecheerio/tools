@@ -1,4 +1,5 @@
 var fs = require('fs')
+var program = require('commander');
 
 var getFromBetween = {
   results: [],
@@ -133,12 +134,34 @@ function generateServicestub(appconfig) {
 }
 
 function main() {
-  var swaggerjson = require('./examples/openapi.json')
+  var swaggerjson;
 
-  var appconfig = generateAppconfig(swaggerjson)
-  generateAppserviceconfig(appconfig, swaggerjson.info.description)
-  generateServicestub(appconfig)
-  generateIndex(appconfig)
+
+  program
+		.version('1.0')
+		.option('-s, --source <path>', 'source')
+		.option('-h, --help', 'Help')
+		.parse(process.argv);
+
+	if (!process.argv.slice(2).length) {
+	  program.outputHelp();
+	  return;
+	}
+
+	if(program.source)
+	{
+		// Delay because the sensor systemd function is executed too soon on boot.
+		//console.log(program.source);
+        swaggerjson = require(program.source)
+        var appconfig = generateAppconfig(swaggerjson)
+        generateAppserviceconfig(appconfig, swaggerjson.info.description)
+        generateServicestub(appconfig)
+        generateIndex(appconfig)
+    
+    }
+    else
+        program.outputHelp();
+
 }
 
 main()
