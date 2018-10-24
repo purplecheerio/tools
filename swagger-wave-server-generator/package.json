@@ -4,16 +4,11 @@
   "description": "Server side Code generator for Swagger openapi 3.0 Json version ",
   "main": "./index.js",
   "bin": "./bin/bin.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "npm run lint",
     "lint": "eslint . --ignore-path .gitignore",
     "fix": "npm run lint -- --fix",
     "fixlint": "eslint . --fix --ignore-path .gitignore ",
-    "toc": "markdown-toc -i README.md",
-    "prepublishOnly": "npm test && pkg-ok"
+    "toc": "markdown-toc -i README.md"
   },
   "repository": {
     "type": "git",
@@ -76,10 +71,5 @@
   "homepage": "https://github.com/purplecheerio/tools/",
   "engines": {
     "node": ">=6"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm test"
-    }
   }
 }

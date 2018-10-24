@@ -33,7 +33,25 @@ Copy this file into the project directory where you want to create and run this 
 swagger-wave-server-generator openapi_petstore.json
 
 ```
-<a id="Using the webconsole">
+
+# Working with the server code stubs
+
+Assuming you have petstore service you will have the followign 4 files in your project directory
+```
+petstore_appconfig.json
+petstore_appserviceconfig.json
+petstore_service.js
+petstore_index.js
+```
+
+Petstore service is all the stubs for your project
+
+To run the code 
+```
+node petstore_index.js
+
+```
+<a id="using">
 
 # Using
 
