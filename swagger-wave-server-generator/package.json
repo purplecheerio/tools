@@ -1,39 +1,52 @@
 {
-  "name": "swagger-wave-server-generator",
-  "version": "1.0.0",
-  "description": "Server side Code generator for Swagger openapi 3.0 Json version ",
+  "name": "wbash",
+  "version": "1.0.11",
+  "description": "web bash ",
   "main": "./index.js",
   "bin": "./bin/bin.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
+    "test": "cross-env NODE_ENV=test jest && npm run lint",
     "lint": "eslint . --ignore-path .gitignore",
     "fix": "npm run lint -- --fix",
     "fixlint": "eslint . --fix --ignore-path .gitignore ",
-    "toc": "markdown-toc -i README.md"
+    "toc": "markdown-toc -i README.md",
+    "prepublishOnly": "npm test && pkg-ok"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/purplecheerio/tools.git"
   },
   "keywords": [
-    "swagger",
-    "wave",
-    "api",
-    "apis",
-    "server",
-    "stub",
-    "openapi",
-    "purplecheerio",
-    "testing",
-    "documentation"
+    "bash",
+    "web",
+    "console",
+    "terminal"
   ],
   "author": "purplecheerio",
   "license": "MIT",
   "dependencies": {
-    "js-beautify": "^1.8.8",
     "please-upgrade-node": "^3.1.1",
     "purplecheerio-wave": "^1.0.65"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-syntax-jsx": "^7.0.0",
+    "@babel/plugin-transform-react-jsx": "^7.0.0",
+    "@babel/plugin-transform-regenerator": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.0",
+    "babel-preset-preact": "^1.1.0",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
@@ -47,6 +60,7 @@
     "eslint-plugin-standard": "^3.1.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.0.0-rc.13",
+    "jest": "^23.4.2",
     "markdown-toc": "^1.2.0",
     "milligram": "^1.3.0",
     "mini-css-extract-plugin": "^0.4.1",
@@ -71,5 +85,13 @@
   "homepage": "https://github.com/purplecheerio/tools/",
   "engines": {
     "node": ">=6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": ""
+    }
+  },
+  "jest": {
+    "testURL": "http://localhost:8888/"
   }
 }
