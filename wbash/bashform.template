@@ -62,19 +62,21 @@
                             <div class="content-inner">
                                 <ul class='list-group'>
                                     <li class='list-group-item list-group-item-info '>
-                                        <form action="bash" method="post">
-                                            <input type="text" id="appkey" name="cmd" title="cmd - bash script" class="form-control"  placeholder="cmd - required" aria-describedby="basic-addon2" REPLCmdValue>
-                                        </form>
+                                        
+                                        <input type="text" id="cmd" name="cmd" title="cmd - bash script" class="form-control"  placeholder="cmd - required" aria-describedby="basic-addon2">
+                                        
+                                        <button type="button" id="btncmd" class="btn btn-primary btn-sm">Command</button>&nbsp;<button type="button" id="btnclear" class="btn btn-primary btn-sm">Clear</button>
                                     </li>
-                                        REPLResults
                                 </ul>
+                                <ul id='results' class='list-group'>
+                                    REPLResults
+                               </ul>
                             </div> <!--content-inner-->
                         </div> <!-- doc-content -->
                     <div class="doc-sidebar hidden-xs">
                         <nav id="doc-nav">
-                            <ul id="doc-menu list-group" style="top:0px" class="nav doc-menu" data-spy="affix">
-                                <li class="list-group-item active">Commands</li>
-                                REPLCommands
+                            <ul id="doc-menu" style="top:0px" class="nav doc-menu" data-spy="affix">
+                                <li class="list-group-item active" style="width:230px">Commands</li>
                             </ul><!--//doc-menu-->
                         </nav>
                     </div><!--//doc-sidebar-->
@@ -100,6 +102,76 @@
     <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
     <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+
+    function RenderHistory(history) {  
+        var strRes = ''
+        strRes += "<li class='list-group-item list-group-item-info '>"
+        strRes += '<form action="bash" method="post">'
+        strRes += '<input type="text" id="cmd" name="cmd" title="cmd - bash script" class="form-control"  placeholder="cmd - required" aria-describedby="basic-addon2">'
+        strRes += '</form>'
+        strRes += '<button type="button" id="btncmd" class="btn btn-primary btn-sm">Command</button>&nbsp;<button type="button" id="btnclear" class="btn btn-primary btn-sm">Clear</button>'
+        strRes += '</li>'
+        strRes = ""
+
+        var strCmds = ''
+        strCmds += '<li class="list-group-item active" style="width:230px">Commands</li>'
+        var strCmdValue = ''
+        if (history.length) {
+            strCmdValue = "value='" + history[history.length - 1].cmd + "'"
+            strRes += "<li class='list-group-item list-group-item-info'>"
+            
+            for (var i = history.length - 1; i >= 0; i--) {
+            strCmds +=
+                "<li class='list-group-item' style='width:230px'><a href='#" +
+                i +
+                "'>" +
+                history[i].cmd +
+                '</a></li>'
+            strRes +=
+                "<li class='list-group-item list-group-item-success' id='" +
+                i +
+                "'>" +
+                history[i].cmd +
+                '</li>'
+            strRes +=
+                "<li class='list-group-item'><pre>" + history[i].result + '</pre></li>'
+            }
+            strRes += '</dl>'
+            strRes += '</li>'
+        }
+        //strRes = strRes.replace("REPLCmdValue", strCmdValue)
+        $("#results").html(strRes);
+        $("#doc-menu").html(strCmds);
+    }
+    $(document).ready(function(){
+        $(document).bind('keypress', function(e) {
+            if(e.keyCode==13){
+                 $('#btncmd').trigger('click');
+             }
+        });
+        $("#btncmd").click(function(){
+            if($("#cmd").val() == "")
+            {
+                return;
+            }
+            $.post("/bash", {"cmd":$("#cmd").val()}, function(data, status){
+                if(status == "success")
+                {
+                    RenderHistory(data);
+                }
+            })
+        })
+        $("#btnclear").click(function(){
+            $.post("/clear", {"cmd":"ls -l"}, function(data, status){
+                if(status == "success")
+                {
+                    RenderHistory(data);
+                }
+            })
+        })
+    })
+    </script>
     
 </body>
 </html> 

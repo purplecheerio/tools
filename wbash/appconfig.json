@@ -39,6 +39,19 @@
         }
       ]
     },
+    {
+      "route": "/clear",
+      "type": "post",
+      "configured": true,
+      "routeclass": "./wbash.js",
+      "routefunction": "RouteDeleteHistory",
+      "description": "Shell User interface",
+      "examples": [
+        {
+          "param": "/clear"
+        }
+      ]
+    },
 
     {
       "route": "/",

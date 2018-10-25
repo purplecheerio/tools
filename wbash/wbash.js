@@ -22,12 +22,12 @@ function RenderForm(req, res) {
   var strCmds = ''
   var strCmdValue = ''
   if (history.length) {
-    strCmdValue = "value='" + history[history.length - 1].cmd + "'"
+    strCmdValue = 'value="' + history[history.length - 1].cmd + '"'
     strRes += "<li class='list-group-item list-group-item-info'>"
     // strRes += "<dl  class='dl-horizontal vcenter'>"
     for (var i = history.length - 1; i >= 0; i--) {
       strCmds +=
-        "<li class='list-group-item'><a href='#" +
+        "<li class='list-group-item style='width:230px'><a href='#" +
         i +
         "'>" +
         history[i].cmd +
@@ -41,13 +41,13 @@ function RenderForm(req, res) {
       strRes +=
         "<li class='list-group-item'><pre>" + history[i].result + '</pre></li>'
     }
-    strRes += '</dl>'
+    // strRes += '</dl>'
     strRes += '</li>'
   }
   str = str
     .replace(/REPLResults/g, strRes)
-    .replace(/REPLCommands/g, strCmds)
-    .replace(/REPLCmdValue/g, strCmdValue)
+    .replace(/<li class="list-group-item active" style="width:230px">Commands<\/li>/, '<li class="list-group-item active" style="width:230px">Commands<\/li>'+strCmds)
+  //  .replace(/REPLCmdValue/g, strCmdValue)
 
   res.status(200).send(str)
 }
@@ -75,7 +75,13 @@ exports.RoutePostSomething = function(req, res) {
     dataCum.push(data)
   })
   child.on('exit', function(exitCode) {
-    AppendResult(req.body.cmd, Buffer.concat(dataCum))
-    RenderForm(req, res)
+    AppendResult(req.body.cmd, Buffer.concat(dataCum));
+    res.json(history);
+    //RenderForm(req, res)
   })
+}
+exports.RouteDeleteHistory = function(req, res) {
+  // Get rid of history and refresh
+  history = [];
+  res.json(history);
 }
