@@ -60,7 +60,7 @@ function generateAppconfig(swaggerjson) {
       route.configured = true
       route.routeclass = './' + appconfig.servicename + '_service.js'
       route.routefunction = currentmethod.operationId
-      route.description1 = currentmethod.summary
+      route.description = currentmethod.summary
 
       if (urlParams !== undefined && urlParams.length !== 0) {
         route.paramschema = {}
@@ -78,7 +78,7 @@ function generateAppconfig(swaggerjson) {
     }
   }
 
-  fs.writeFile(
+  fs.writeFileSync(
     appconfig.servicename + '_appconfig.json',
     JSON.stringify(appconfig, null, 2),
     'utf-8'
@@ -95,9 +95,9 @@ function generateAppserviceconfig(appconfig, description) {
   appserviceconfig.services[appconfig.servicename].configfilepath =
     './' + appconfig.servicename + '_appconfig.json'
   appserviceconfig.services[appconfig.servicename].security = 'nokey'
-  appserviceconfig.services[appconfig.servicename].description1 = description
+  appserviceconfig.services[appconfig.servicename].description = description
 
-  fs.writeFile(
+  fs.writeFileSync(
     appconfig.servicename + '_appserviceconfig.json',
     JSON.stringify(appserviceconfig, null, 2),
     'utf-8'
@@ -110,7 +110,7 @@ function generateIndex(appconfig) {
   indexjs += appconfig.servicename + "_appserviceconfig.json')"
 
   var beautify = require('js-beautify').js
-  fs.writeFile(
+  fs.writeFileSync(
     appconfig.servicename + '_index.js',
     beautify(indexjs, { indent_size: 2, space_in_empty_paren: true })
   )
@@ -127,7 +127,7 @@ function generateServicestub(appconfig) {
     servicejs += functionstring + '\n'
   }
   var beautify = require('js-beautify').js
-  fs.writeFile(
+  fs.writeFileSync(
     appconfig.servicename + '_service.js',
     beautify(servicejs, { indent_size: 2, space_in_empty_paren: true })
   )
