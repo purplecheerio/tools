@@ -36,21 +36,22 @@ wbash
 On a web browser on this machine
 
 ```
-http://localhost:8888/
+https://localhost:8888/
 
 ```
+You will see a warning 'Your connection is not private' because the default certificates supplied with wbash are self-signed. These certificates are located in wbash/security directory. Replace the default certificates with your company owned certificates to eliminate the error.
 
 If accessing this web console from a remote machine
 
 - make sure that the port  8888 is open for access
 
 ```
-http://`<machinename>`:8888/
+https://`<machinename>`:8888/
 
 ```
 
 
-The sourcecode for this project is available at  <a href="http://www.github.com/puplecheerio/tools">Github Wbash Project</a>
+The sourcecode for this project is available at  <a href="http://www.github.com/purplecheerio/tools">Github Wbash Project</a>
 
 The work is powered by npm package <a href="https://www.npmjs.com/package/purplecheerio-wave">Purplecheerio-wave</a>
 
