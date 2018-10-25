@@ -20,14 +20,14 @@ function RenderForm(req, res) {
   var str = fs.readFileSync(pathtoread, 'UTF8')
   var strRes = ''
   var strCmds = ''
-  var strCmdValue = ''
+  // var strCmdValue = ''
   if (history.length) {
-    strCmdValue = 'value="' + history[history.length - 1].cmd + '"'
+    // strCmdValue = 'value="' + history[history.length - 1].cmd + '"'
     strRes += "<li class='list-group-item list-group-item-info'>"
     // strRes += "<dl  class='dl-horizontal vcenter'>"
     for (var i = history.length - 1; i >= 0; i--) {
       strCmds +=
-        "<li class='list-group-item style='width:230px'><a href='#" +
+        "<li class='list-group-item' style='width:230px'><a href='#" +
         i +
         "'>" +
         history[i].cmd +
@@ -46,7 +46,11 @@ function RenderForm(req, res) {
   }
   str = str
     .replace(/REPLResults/g, strRes)
-    .replace(/<li class="list-group-item active" style="width:230px">Commands<\/li>/, '<li class="list-group-item active" style="width:230px">Commands<\/li>'+strCmds)
+    .replace(
+      /<li class="list-group-item active" style="width:230px">Commands<\/li>/,
+      '<li class="list-group-item active" style="width:230px">Commands</li>' +
+        strCmds
+    )
   //  .replace(/REPLCmdValue/g, strCmdValue)
 
   res.status(200).send(str)
@@ -75,13 +79,13 @@ exports.RoutePostSomething = function(req, res) {
     dataCum.push(data)
   })
   child.on('exit', function(exitCode) {
-    AppendResult(req.body.cmd, Buffer.concat(dataCum));
-    res.json(history);
-    //RenderForm(req, res)
+    AppendResult(req.body.cmd, Buffer.concat(dataCum))
+    res.json(history)
+    // RenderForm(req, res)
   })
 }
 exports.RouteDeleteHistory = function(req, res) {
   // Get rid of history and refresh
-  history = [];
-  res.json(history);
+  history = []
+  res.json(history)
 }
