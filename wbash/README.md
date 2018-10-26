@@ -49,8 +49,23 @@ If accessing this web console from a remote machine
 https://`<machinename>`:8888/
 
 ```
+# Customization
+There various config values that you can modify.
+wbash -h will list out the options available
+| Command     | Description |
+| ----------- | ----------- |
+| wbash      | without any command line arguments runs the webconsole       |
+| wbash -l   | lists all the properties of the wbash service config        |
+| wbash -c \<certpath>   | When using this in production, you may want to get and use your own certificate and key files. If you specify the path to where the certificate is found. Note the path should include the name of file name of the .crt and .key without extension       |
+| wbash -p \<port>   | If you want to use a different port from the default port 8888, you can use this        |
+| wbash -r \<protocol>   | This option takes only two values - https or http. It's not advisable to set this to http.      |
+| wbash -n \<hostname>   | If you are using a hostname differnt from localhost, use this to set the hostname        |
+| wbash -d   | sets the config to default values        |
 
 
+ 
+
+# About
 The sourcecode for this project is available at  <a href="http://www.github.com/purplecheerio/tools">Github Wbash Project</a>
 
 The work is powered by npm package <a href="https://www.npmjs.com/package/purplecheerio-wave">Purplecheerio-wave</a>
