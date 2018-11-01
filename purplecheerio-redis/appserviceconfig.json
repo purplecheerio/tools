@@ -1,0 +1,13 @@
+{
+  "services": {
+    "purplecheerio-redis": {
+      "protocol": "https",
+      "certPath": "security/mycompany",
+      "port": 8889,
+      "hostname": "localhost",
+      "description": "purplecheerio-redis implements REST endpoints and a webservice for interacting with redis database",
+      "configfilepath": "./appconfig.json",
+      "security": "nokey"
+    }
+  }
+}

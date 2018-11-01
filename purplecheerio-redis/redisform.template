@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>purplecheer.io sdk documentation</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="images/wbash.png">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+
+    <!-- below copied from www2 -->
+    <link href="css/font-awesome.css" rel="stylesheet"> 
+    <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="icon" href="images/wbash.png" type="image/x-icon" />
+    <link rel="icon" type="image/png" href="images/wbash.png" />
+    <link rel="shortcut icon" href="images/wbash.png" type="image/x-icon" />
+    <!-- above copied from www2 -->    
+    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head> 
+
+<body>
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <div class="banner1" id="home">
+            <!-- header -->
+            <header>
+                <div class="container-fluid">
+                        <!-- navigation -->
+                        <div class="clearfix"></div>
+                </div>
+            </header>
+        </div>
+        <div class="doc-body">
+                <div class="container-fluid">
+                    
+                    <div id="doc-header" class="doc-header text-center">
+                        <h1 class="doc-title"><i class="icon fa fa-database"></i> PurpleCheerio-Redis</h1>
+                    </div>
+                    
+                    <div class="doc-body">
+                        <div class="doc-content1">
+                            <div class="content-inner">
+                                <ul class='list-group'>
+                                    <li class='list-group-item list-group-item-info '>
+                                        <div class="row">
+                                            <div class="col col-md-2">
+                                                <input type="text" id="ns" name="ns" title="namespace" class="form-control"  placeholder="namespace" aria-describedby="basic-addon2">
+                                            </div>
+                                            <div class="col col-md-2">
+                                                <input type="text" id="key" name="key" title="key" class="form-control"  placeholder="key" aria-describedby="basic-addon2">
+                                            </div>
+                                            <div class="col col-md-8">
+                                                <input type="text" id="val" name="val" title="val" class="form-control"  placeholder="value" aria-describedby="basic-addon2">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col col-md-10">
+                                                <button type="button" id="btnns" class="btn btn-primary btn-sm" data-toggle="tooltip" title="Namespaces"><i class="icon fa fa-object-group" style="margin:0px"></i></button>
+                                                <button type="button" id="btnkeys" class="btn btn-primary btn-sm"data-toggle="tooltip" title="Keys"><i class="icon fa fa-key" style="margin:0px"></i></button>
+                                                <button type="button" id="btnkeyvalues" class="btn btn-primary btn-sm"data-toggle="tooltip" title="KeyValues"><i class="icon fa fa-table" style="margin:0px"></i></button>
+                                                <button type="button" id="btnkeyval" class="btn btn-primary btn-sm"data-toggle="tooltip" title="Get"><i class="icon fa fa-eye" style="margin:0px"></i></button>
+                                                <button type="button" id="btnset" class="btn btn-primary btn-sm"data-toggle="tooltip" title="Set"><i class="icon glyphicon glyphicon-pencil" style="margin:0px"></i></button>
+                                                <button type="button" id="btndelns" class="btn btn-primary btn-sm"data-toggle="tooltip" title="Delete Namespace"><i class="icon fa fa-times-circle" style="margin:0px"></i></button>
+                                                <button type="button" id="btndel" class="btn btn-primary btn-sm"data-toggle="tooltip" title="Delete"><i class="icon fa fa-remove" style="margin:0px"></i></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div id='results' class="table-responsive">
+                                    REPLResults
+                               </div>
+                            </div> <!--content-inner-->
+                        </div> <!-- doc-content -->
+                    </div> <!-- doc-body -->		
+                </div><!--//container-fluid-->
+        </div><!--//doc-body-->
+           
+         
+    </div><!--//page-wrapper-->
+    <div class="page-foote-barr">
+		<div class="bottom-nav-cheer-bar">
+            <div class="copyright">
+            </div>
+		</div>
+   </div>
+ 
+
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script>
+    // Taken from http://stepansuvorov.com/blog/2014/04/jquery-put-and-delete/
+    $.delete = function(url, data, callback, type){
+    
+    if ( $.isFunction(data) ){
+        type = type || callback,
+            callback = data,
+            data = {}
+    }
+    
+    return $.ajax({
+        url: url,
+        type: 'DELETE',
+        success: callback,
+        data: data,
+        contentType: type
+    });
+    }
+    $.put = function(url, data, callback, type){
+        
+        if ( $.isFunction(data) ){
+            type = type || callback,
+            callback = data,
+            data = {}
+        }
+        
+        return $.ajax({
+            url: url,
+            type: 'PUT',
+            success: callback,
+            data: data,
+            contentType: type
+        });
+    }
+    </script>
+
+    <script>
+
+    function RenderData(data) {  
+        var strRes = ''
+        strRes = ""
+
+        var strCmdValue = ''
+        if (data.length) {
+            strRes += "<table class='table'><thead><tr>";
+            if(typeof(data[0]) == "object")
+            {
+                for(var e in data[0])
+                {
+                    if(e == "value")
+                        strRes += "<th class='col-xs-5'>"+e+"</th>";
+                    else                    
+                        strRes += "<th class='col-xs-1'>"+e+"</th>";
+                }
+            }
+            else
+                strRes += "<th>NameSpace</th>"           
+            strRes += "</tr></thead><tbody>";
+            for (var i in data) {
+            if(typeof(data[i]) == "string")
+                strRes += "<tr><td>"+data[i]+"</td></tr>"
+            else if(typeof(data[i]) == "object")
+            {
+                strRes += "<tr>";
+                for(var e in data[i])
+                {
+                    strRes += "<td>"+data[i][e]+"</td>";
+                }
+                strRes += "</tr>";
+            }            
+            }
+            strRes += "</tbody></table>";
+        }
+        $("#results").html(strRes);
+    }
+    $(document).ready(function(){
+        $(document).bind('keypress', function(e) {
+            if(e.keyCode==13){
+                if($("#ns") == "")
+                {
+                    // No namespace means, it's just getting all namespaces
+                    $('#btnns').trigger('click');
+                    return;
+                }
+                if($("#key") == "")
+                {
+                    // No key means, it's getting all keys in the namespace
+                    $('#btnkeyvalues').trigger('click');
+                    return;
+                }
+                if($("#val").val == "")
+                {
+                    // No val means, it's getting all keys in the namespace
+                    $('#btnkeyval').trigger('click');
+                    return;
+                }
+                $('#btnset').trigger('click');
+             }
+        });
+    $("#btnkeys").prop("disabled", true);
+    $("#btnkeyvalues").prop("disabled", true);
+    $("#btnkeyval").prop("disabled", true);
+    $("#btnset").prop("disabled", true);
+    $("#btndel").prop("disabled", true);
+    $("#btndelns").prop("disabled", true);
+    $("input").change(function(){
+            if($("#ns").val() == "")
+            {
+                $("#btnkeys").prop("disabled", true);
+                $("#btnkeyvalues").prop("disabled", true);
+                $("#btnkeyval").prop("disabled", true);
+                $("#btnset").prop("disabled", true);
+                $("#btndel").prop("disabled", true);
+                $("#btndelns").prop("disabled", true);
+            }
+            else if($("#key").val() == "")
+            {
+                $("#btnkeys").prop("disabled", false);
+                $("#btnkeyvalues").prop("disabled", false);
+                $("#btnkeyval").prop("disabled", true);
+                $("#btnset").prop("disabled", true);
+                $("#btndel").prop("disabled", true);
+                $("#btndelns").prop("disabled", false);
+            }
+            else if($("#val").val() == "")
+            {
+                $("#btnkeys").prop("disabled", false);
+                $("#btnkeyvalues").prop("disabled", false);
+                $("#btnkeyval").prop("disabled", false);
+                $("#btnset").prop("disabled", true);
+                $("#btndel").prop("disabled", false);
+            }
+            else
+            {
+                $("#btnkeys").prop("disabled", false);
+                $("#btnkeyvalues").prop("disabled", false);
+                $("#btnkeyval").prop("disabled", false);
+                $("#btnset").prop("disabled", false);
+                $("#btndel").prop("disabled", false);
+            }
+        })
+        $("#btnns").click(function(){
+            $.get("/namespaces", null, function(data, status){
+                if(status == "success")
+                {
+                    RenderData(data);
+                }
+            })
+        })
+        $("#btnkeys").click(function(){
+            $.get("/namespaces/"+$("#ns").val()+"/keys", null, function(data, status){
+                if(status == "success")
+                {
+                    RenderData(data);
+                }
+            })
+        })
+        $("#btnkeyvalues").click(function(){
+            $.get("/namespaces/"+$("#ns").val()+"/keyvalues", null, function(data, status){
+                if(status == "success")
+                {
+                    RenderData(data);
+                }
+            })
+        })
+        $("#btnkeyval").click(function(){
+            $.get("/namespaces/"+$("#ns").val()+"/keys/"+$("#key").val(), null, function(data, status){
+                if(status == "success")
+                {
+                    RenderData(data);
+                }
+            })
+        })
+        $("#btnset").click(function(){
+            $.put("/namespaces/"+$("#ns").val()+"/keys/"+$("#key").val(), {"value":$("#val").val()}, function(data, status){
+                if(status == "success")
+                {
+                    RenderData(data);
+                }
+            })
+        })
+        $("#btndel").click(function(){
+            $.delete("/namespaces/"+$("#ns").val()+"/keys/"+$("#key").val(), null, function(data, status){
+                if(status == "success")
+                {
+                    RenderData(data);
+                }
+            })
+        })
+        $("#btndelns").click(function(){
+            $.delete("/namespaces/"+$("#ns").val(), null, function(data, status){
+                if(status == "success")
+                {
+                    RenderData(data);
+                }
+            })
+        })
+    })
+    </script>
+    
+</body>
+</html> 
+

@@ -1,0 +1,211 @@
+{
+  "servicename": "purplecheerio-redis",
+  "routes": [
+    {
+      "route": "/",
+      "type": "get",
+      "configured": true,
+      "routeclass": "./purplecheerio-redis.js",
+      "routefunction": "RouteGetForm",
+      "description": "Shell User interface",
+      "examples": [
+        {
+          "param": "/"
+        }
+      ]
+    },
+    {
+      "route": "/namespaces",
+      "type": "get",
+      "configured": true,
+      "routeclass": "./purplecheerio-redis.js",
+      "routefunction": "RouteGetNamespaces",
+      "description": "Retrieve keys",
+      "examples": [
+        {
+          "param": "/namespaces"
+        }
+      ]
+    },
+    {
+      "route": "/namespaces/:namespace/keys",
+      "type": "get",
+      "configured": true,
+      "routeclass": "./purplecheerio-redis.js",
+      "routefunction": "RouteGetKeys",
+      "description": "Retrieve keys",
+      "paramschema":{
+        "type":"object",
+        "required":["namespace"],
+        "properties":{
+          "namespace": {
+            "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+            "type": "string",
+            "pattern":"^[a-z0-9]+$"
+          }
+        }
+      },
+      "examples": [
+        {
+          "param": "/namespaces/foo/keys"
+        }
+      ]
+    },
+    {
+      "route": "/namespaces/:namespace/keyvalues",
+      "type": "get",
+      "configured": true,
+      "routeclass": "./purplecheerio-redis.js",
+      "routefunction": "RouteGetKeyValues",
+      "description": "Retrieve keys and corresponding values",
+      "paramschema":{
+        "type":"object",
+        "required":["namespace"],
+        "properties":{
+          "namespace": {
+            "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+            "type": "string",
+            "pattern":"^[a-z0-9]+$"
+          }
+        }
+      },
+      "examples": [
+        {
+          "param": "/namespaces/foo/keyvalues"
+        }
+      ]
+    },
+    {
+      "route": "/namespaces/:namespace/keys/:key",
+      "type": "get",
+      "configured": true,
+      "routeclass": "./purplecheerio-redis.js",
+      "routefunction": "RouteGetKey",
+      "description": "Retrieve key and value",
+      "paramschema":{
+        "type":"object",
+        "required":["namespace", "key"],
+        "properties":{
+          "namespace": {
+            "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+            "type": "string",
+            "pattern":"^[a-z0-9]+$"
+          },
+          "key": {
+            "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+            "type": "string",
+            "pattern":"^[a-z0-9*]+$"
+          }
+        }
+      },
+      "examples": [
+        {
+          "param": "/namespaces/foo/keys/bar"
+        }
+      ]
+    },
+    {
+      "route": "/namespaces/:namespace/keys/:key",
+      "type": "put",
+      "configured": true,
+      "routeclass": "./purplecheerio-redis.js",
+      "routefunction": "RoutePutKeys",
+      "description": "update the value of a key. If it does not exist create the key",
+      "paramschema":{
+        "type":"object",
+        "required":["namespace", "key"],
+        "properties":{
+          "namespace": {
+            "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+            "type": "string",
+            "pattern":"^[a-z0-9]+$"
+          },
+          "key": {
+            "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+            "type": "string",
+            "pattern":"^[a-z0-9*]+$"
+          }
+        }
+      },
+      "bodyschema":{
+          "type":"object",
+          "required":["value"],
+          "properties":{
+            "value": {
+              "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+              "type": "string",
+              "pattern":"^[a-z0-9]+$"
+            }
+          }
+      },
+      "examples": [
+          {
+            "param": "/namespaces/foo1/keys/name3",
+            "payload":{
+              "value":"1"
+            }
+          },
+          {
+            "param": "/namespaces/foo1/keys/name4",
+            "payload":{
+              "value":"value2"
+            }
+          }
+      ]
+    },
+    {
+      "route": "/namespaces/:namespace/keys/:key",
+      "type": "delete",
+      "configured": true,
+      "routeclass": "./purplecheerio-redis.js",
+      "routefunction": "RouteDeleteKey",
+      "description": "Delete a key in a namespace",
+      "paramschema":{
+        "type":"object",
+        "required":["namespace", "key"],
+        "properties":{
+          "namespace": {
+            "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+            "type": "string",
+            "pattern":"^[a-z0-9]+$"
+          },
+          "key": {
+            "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+            "type": "string",
+            "pattern":"^[a-z0-9*]+$"
+          }
+        }
+      },
+      "examples": [
+        {
+          "param": "/namespaces/foo/keys/name1"
+        }
+      ]
+},
+    {
+      "route": "/namespaces/:namespace",
+      "type": "delete",
+      "configured": true,
+      "routeclass": "./purplecheerio-redis.js",
+      "routefunction": "RouteDeleteNamespace",
+      "description": "Delete a namespace",
+      "paramschema":{
+        "type":"object",
+        "required":["namespace"],
+        "properties":{
+          "namespace": {
+            "description": "namespace (redis does have concept of namespaces natively. This service introduces redis key name to be <namespace>:<key>. ",
+            "type": "string",
+            "pattern":"^[a-z0-9]+$"
+          }
+        }
+      },
+      "examples": [
+        {
+          "param": "/namespaces/foo"
+        }
+      ]
+    }
+
+  ]
+}
