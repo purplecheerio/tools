@@ -1,6 +1,6 @@
 {
   "name": "swagger-wave-server-generator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Server side Code generator for Swagger openapi 3.0 Json version ",
   "main": "./index.js",
   "bin": "./bin/bin.js",
