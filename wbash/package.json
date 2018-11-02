@@ -8,12 +8,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest && npm run lint",
+    "test": "",
     "lint": "eslint . --ignore-path .gitignore",
     "fix": "npm run lint -- --fix",
     "fixlint": "eslint . --fix --ignore-path .gitignore ",
     "toc": "markdown-toc -i README.md",
-    "prepublishOnly": "pkg-ok"
+    "prepublishOnly": ""
   },
   "repository": {
     "type": "git",

@@ -5,7 +5,7 @@
       "certPath": "security/mycompany",
       "port": 8888,
       "hostname": "localhost",
-      "description": "REST END POINT For Sample Service.",
+      "description": "wbash implements REST endpoints and a webservice that offers web console functionality",
       "configfilepath": "./appconfig.json",
       "security": "nokey"
     }
