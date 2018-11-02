@@ -5,12 +5,12 @@
   "main": "./index.js",
   "bin": "./bin/bin.js",
   "scripts": {
-    "test": "npm run lint",
+    "test": "",
     "lint": "eslint . --ignore-path .gitignore",
     "fix": "npm run lint -- --fix",
     "fixlint": "eslint . --fix --ignore-path .gitignore ",
     "toc": "markdown-toc -i README.md",
-    "prepublishOnly": "npm test && pkg-ok"
+    "prepublishOnly": ""
   },
   "repository": {
     "type": "git",
