@@ -1,7 +1,14 @@
 {
   "servicename": "wbash",
   "routes": [
-    {
+      {
+        "route": "/images",
+        "type": "static",
+        "configured": true,
+        "routeclass": "./images",
+        "description": "app specific images are served from the directory /images under route /images"
+      },
+      {
       "route": "/bash",
       "type": "get",
       "configured": true,
