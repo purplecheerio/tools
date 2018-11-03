@@ -1,4 +1,5 @@
 wbash/node_modules
+wbashs/package-lock.json
 .vscode/
 purplecheerio-redis/.vscode/
 purplecheerio-redis/node_modules/
