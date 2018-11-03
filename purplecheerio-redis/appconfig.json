@@ -2,6 +2,13 @@
   "servicename": "purplecheerio-redis",
   "routes": [
     {
+      "route": "/images",
+      "type": "static",
+      "configured": true,
+      "routeclass": "./images",
+      "description": "app specific images are served from the directory /images under route /images"
+    },
+    {
       "route": "/",
       "type": "get",
       "configured": true,
